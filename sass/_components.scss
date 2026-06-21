@@ -1,0 +1,151 @@
+// Buttons
+.btn {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: 4px;
+  font-weight: $font-weight-semibold;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+
+  &--primary {
+    background-color: $color-accent;
+    color: $color-white;
+    &:hover {
+      background-color: $color-accent-hover;
+      text-decoration: none;
+    }
+  }
+}
+
+// Hero
+.hero {
+  background-color: $color-primary;
+  color: $color-white;
+  text-align: center;
+  padding: $spacing-3xl $spacing-md;
+
+  &__title { font-size: $font-size-h1; margin-bottom: $spacing-md; }
+  &__subtitle {
+    font-size: $font-size-lg;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+    opacity: 0.9;
+  }
+}
+
+// Featured Section
+.featured {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-md;
+
+  &__heading { font-size: $font-size-h2; margin-bottom: $spacing-xl; text-align: center; }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $spacing-xl;
+  }
+}
+
+// Container query wrapper
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+// Card component
+.card {
+  background: $color-white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+  &__media-wrapper { position: relative; overflow: hidden; aspect-ratio: 16 / 9; }
+  &__image { width: 100%; height: 100%; object-fit: cover; }
+  &__badge {
+    position: absolute;
+    top: $spacing-sm;
+    left: $spacing-sm;
+    background: $color-primary;
+    color: $color-white;
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: 4px;
+  }
+  &__body { padding: $spacing-md; display: flex; flex-direction: column; gap: $spacing-xs; flex: 1; }
+  &__title { font-size: $font-size-h3; font-weight: $font-weight-semibold; }
+  &__link { color: $color-primary; &:hover { text-decoration: underline; } }
+  &__description { color: $color-text-light; font-size: $font-size-sm; }
+}
+
+// Container query: card goes horizontal once its OWN container is ≥500px wide
+@container card (min-width: 500px) {
+  .card {
+    flex-direction: row;
+    &__media-wrapper { width: 40%; flex-shrink: 0; }
+    &__body { justify-content: center; }
+  }
+}
+
+// Story Detail (shared by both audio and video stories)
+.story {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+
+  &__header { margin-bottom: $spacing-lg; }
+  &__title { font-size: $font-size-h1; }
+  &__byline { color: $color-text-light; margin-top: $spacing-xs; }
+  &__media { margin-bottom: $spacing-lg; }
+  &__audio { width: 100%; }
+  &__video { width: 100%; border-radius: 4px; }
+  &__caption { font-style: italic; margin-top: $spacing-xs; }
+  &__body { display: flex; flex-direction: column; gap: $spacing-md; margin-top: $spacing-lg; }
+}
+
+// Transcript (native <details>/<summary>, no JS required)
+.transcript {
+  margin-top: $spacing-lg;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+
+  &__toggle {
+    padding: $spacing-sm $spacing-md;
+    background-color: $color-white;
+    cursor: pointer;
+    font-weight: $font-weight-semibold;
+    list-style: none;
+    &::-webkit-details-marker { display: none; }
+  }
+  &__content { padding: $spacing-md; background: $color-white; }
+}
+
+// Related Stories
+.related {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+
+  &__heading { font-size: $font-size-h2; margin-bottom: $spacing-md; }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $spacing-lg;
+  }
+}
+
+// Breadcrumb
+.breadcrumb {
+  max-width: 800px;
+  margin: $spacing-md auto 0;
+  padding: 0 $spacing-md;
+  font-size: $font-size-sm;
+  a { color: $color-text-light; }
+}

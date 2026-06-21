@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Visitor in the Yard – StoryCast</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header__logo">
+      <a href="../index.html" class="site-header__logo-link">StoryCast</a>
+    </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a href="../index.html" class="site-nav__link">Home</a></li>
+        <li class="site-nav__item"><a href="echoes-of-the-forest.html" class="site-nav__link site-nav__link--active" aria-current="page">Stories</a></li>
+        <li class="site-nav__item"><a href="../about.html" class="site-nav__link">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> &rsaquo; <span>A Visitor in the Yard</span>
+    </nav>
+
+    <article class="story">
+      <header class="story__header">
+        <h1 class="story__title">A Visitor in the Yard</h1>
+        <p class="story__byline">Produced by Brenda Maina</p>
+      </header>
+
+      <figure class="story__media">
+        <video
+          controls
+          preload="metadata"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%234C7A3D'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,sans-serif' font-size='28'%3EA Visitor in the Yard%3C/text%3E%3C/svg%3E"
+          class="story__video">
+          <source src="../assets/media/a-visitor-in-the-yard.mp4" type="video/mp4" />
+          <track kind="captions" src="../assets/media/a-visitor-in-the-yard.vtt" srclang="en" label="English captions" default />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption class="story__caption">A small bird visits a garden in Colombia.</figcaption>
+      </figure>
+
+      <details class="transcript">
+        <summary class="transcript__toggle">Read the full transcript</summary>
+        <div class="transcript__content">
+          <p>Audio: birds chirping continuously throughout.</p>
+          <p>[00:00] A small bird is already perched on a branch, eating from a patch of fungus growing on the wood.</p>
+          <p>[00:04] It takes a bite, then pauses to look around the yard.</p>
+          <p>[00:08] Another bird lands on a branch in the background.</p>
+          <p>[00:12] The bird keeps eating, glancing around after each bite.</p>
+          <p>[00:16] A third bird flits onto a nearby branch as the first one continues feeding.</p>
+        </div>
+      </details>
+
+      <div class="story__body">
+        <p>Filmed in a backyard in Colombia, this short story captures a single unguarded moment — a bird pausing in its day, unaware it's being watched. There's no narration here, just the sound and motion of an ordinary garden.</p>
+        <p>StoryCast includes moments like this alongside longer narrated pieces, because not every story needs words to be worth paying attention to.</p>
+      </div>
+    </article>
+
+    <aside class="related" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="related__heading">Related Stories</h2>
+      <div class="related__grid">
+        <div class="card-container">
+          <article class="card">
+            <div class="card__media-wrapper">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='400' height='225' fill='%232C3E6B'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,sans-serif' font-size='18'%3EForest%3C/text%3E%3C/svg%3E" alt="Dense rainforest canopy" class="card__image" />
+              <span class="card__badge">Audio</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title"><a href="echoes-of-the-forest.html" class="card__link">Echoes of the Forest</a></h3>
+              <p class="card__description">A sound journey through the rainforest at dawn.</p>
+            </div>
+          </article>
+        </div>
+        <div class="card-container">
+          <article class="card">
+            <div class="card__media-wrapper">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='400' height='225' fill='%231B2A4A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,sans-serif' font-size='18'%3EOcean%3C/text%3E%3C/svg%3E" alt="Ocean waves" class="card__image" />
+              <span class="card__badge">Audio</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title"><span class="card__link">Ocean's Whisper</span></h3>
+              <p class="card__description">An audio diary from a marine biologist. Coming soon.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 StoryCast. All rights reserved. <a href="../about.html" class="site-footer__link">About &amp; Accessibility</a></p>
+  </footer>
+</body>
+</html>

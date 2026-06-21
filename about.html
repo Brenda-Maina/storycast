@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About StoryCast – Our Mission &amp; Accessibility</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header__logo">
+      <a href="index.html" class="site-header__logo-link">StoryCast</a>
+    </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a href="index.html" class="site-nav__link">Home</a></li>
+        <li class="site-nav__item"><a href="story/echoes-of-the-forest.html" class="site-nav__link">Stories</a></li>
+        <li class="site-nav__item"><a href="about.html" class="site-nav__link site-nav__link--active" aria-current="page">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="about">
+    <h1 class="about__title">About StoryCast</h1>
+
+    <div class="about__grid">
+      <section class="about__mission" aria-labelledby="mission-heading">
+        <h2 id="mission-heading">Our Mission</h2>
+        <p>StoryCast exists to amplify voices that don't always get heard. We believe storytelling — in sound and image — can connect people across distance and difference.</p>
+        <p>From rainforest soundscapes to quiet backyard moments, every story here is chosen for what it reveals about a place, a person, or a moment.</p>
+      </section>
+
+      <section class="about__access" aria-labelledby="access-heading">
+        <h2 id="access-heading">Accessibility Commitment</h2>
+        <ul>
+          <li>Every video includes <strong>captions</strong> via a <code>&lt;track&gt;</code> element.</li>
+          <li>Every story includes a full, readable <strong>transcript</strong>.</li>
+          <li>The site meets <strong>WCAG 2.1 AA</strong> contrast and keyboard-navigation standards.</li>
+          <li>Semantic HTML is used throughout so screen readers can navigate the structure reliably.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="about__contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Get in Touch</h2>
+      <p>Have a story to suggest, or feedback on accessibility? Send us a message.</p>
+      <form class="contact-form" action="#" method="post">
+        <div class="contact-form__field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required />
+        </div>
+        <div class="contact-form__field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+        <div class="contact-form__field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 StoryCast. <a href="about.html" class="site-footer__link">About &amp; Accessibility</a></p>
+  </footer>
+</body>
+</html>ss
