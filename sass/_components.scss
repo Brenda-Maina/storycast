@@ -20,7 +20,8 @@
 
 // Hero
 .hero {
-  background-color: $color-primary;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  border-top: 4px solid $color-accent;
   color: $color-white;
   text-align: center;
   padding: $spacing-3xl $spacing-md;
@@ -78,6 +79,15 @@
     font-size: $font-size-sm;
     padding: $spacing-xs $spacing-sm;
     border-radius: 4px;
+
+    &--audio {
+      background-color: $color-accent-secondary;
+      color: $color-accent-secondary-dark;
+    }
+    &--video {
+      background-color: $color-accent;
+      color: $color-white;
+    }
   }
   &__body { padding: $spacing-md; display: flex; flex-direction: column; gap: $spacing-xs; flex: 1; }
   &__title { font-size: $font-size-h3; font-weight: $font-weight-semibold; }
@@ -85,7 +95,6 @@
   &__description { color: $color-text-light; font-size: $font-size-sm; }
 }
 
-// Container query: card goes horizontal once its OWN container is ≥500px wide
 @container card (min-width: 500px) {
   .card {
     flex-direction: row;
@@ -94,7 +103,7 @@
   }
 }
 
-// Story Detail (shared by both audio and video stories)
+// Story Detail
 .story {
   max-width: 800px;
   margin: 0 auto;
@@ -110,7 +119,7 @@
   &__body { display: flex; flex-direction: column; gap: $spacing-md; margin-top: $spacing-lg; }
 }
 
-// Transcript (native <details>/<summary>, no JS required)
+// Transcript
 .transcript {
   margin-top: $spacing-lg;
   border: 1px solid $color-border;

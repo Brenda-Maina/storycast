@@ -1,7 +1,21 @@
 @import 'colors';
 @import 'typography';
 @import 'spacing';
-@import 'base';
-@import 'layout';
-@import 'components';
-@import 'about';
+
+@layer base, layout, components, pages;
+
+@layer base {
+  @import 'base';
+}
+
+@layer layout {
+  @import 'layout';
+}
+
+@layer components {
+  @import 'components';
+}
+
+@layer pages {
+  @import 'about';
+}
