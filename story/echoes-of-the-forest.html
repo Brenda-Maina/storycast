@@ -1,95 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Echoes of the Forest — an audio story journeying through the rainforest at dawn, with full transcript." />
   <title>Echoes of the Forest – StoryCast</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="theme-announcement" class="live-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="player-status" class="live-region" aria-live="polite" aria-atomic="true"></div>
 
   <header class="site-header">
-    <div class="site-header__logo">
-      <a href="../index.html" class="site-header__logo-link">StoryCast</a>
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-header__logo">StoryCast</a>
+
+      <button class="site-nav__toggle" id="nav-toggle"
+              aria-expanded="false"
+              aria-controls="site-nav-list"
+              aria-label="Open navigation menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="site-nav__list" id="site-nav-list">
+          <li><a href="../index.html" class="site-nav__link">Home</a></li>
+          <li><a href="echoes-of-the-forest.html" class="site-nav__link site-nav__link--active" aria-current="page">Stories</a></li>
+          <li><a href="../about.html" class="site-nav__link">About</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <span aria-hidden="true" id="theme-icon">🌙</span>
+      </button>
     </div>
-    <nav class="site-nav" aria-label="Main navigation">
-      <ul class="site-nav__list">
-        <li class="site-nav__item"><a href="../index.html" class="site-nav__link">Home</a></li>
-        <li class="site-nav__item"><a href="echoes-of-the-forest.html" class="site-nav__link site-nav__link--active" aria-current="page">Stories</a></li>
-        <li class="site-nav__item"><a href="../about.html" class="site-nav__link">About</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a> &rsaquo; <span>Echoes of the Forest</span>
+      <a href="../index.html">Home</a> &rsaquo;
+      <span>Echoes of the Forest</span>
     </nav>
 
     <article class="story">
       <header class="story__header">
+        <p class="story__eyebrow">Audio Story</p>
         <h1 class="story__title">Echoes of the Forest</h1>
-        <p class="story__byline">Produced by Brenda Maina</p>
+        <div class="story__meta">
+          <span class="story__byline">Produced by Brenda Maina</span>
+          <span aria-hidden="true">·</span>
+          <span id="reading-time" class="story__reading-time">Loading…</span>
+        </div>
       </header>
 
       <figure class="story__media">
-        <audio controls preload="metadata" class="story__audio">
+        <audio controls preload="metadata" class="story__audio"
+               aria-label="Audio player for Echoes of the Forest">
           <source src="../assets/media/echoes-of-the-forest.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
+          Your browser does not support audio. Please read the transcript below.
         </audio>
-        <figcaption class="story__caption">A sound journey through the rainforest at dawn.</figcaption>
+        <figcaption class="story__caption">A sound journey through the rainforest at dawn. Use the controls above to play, pause, or adjust speed.</figcaption>
       </figure>
+
+      <div class="story__controls" role="group" aria-label="Playback controls">
+        <span class="story__controls-label">Speed:</span>
+        <button class="speed-btn" data-speed="0.5" aria-pressed="false">0.5×</button>
+        <button class="speed-btn speed-btn--active" data-speed="1" aria-pressed="true">1×</button>
+        <button class="speed-btn" data-speed="1.25" aria-pressed="false">1.25×</button>
+        <button class="speed-btn" data-speed="1.5" aria-pressed="false">1.5×</button>
+        <button class="speed-btn" data-speed="2" aria-pressed="false">2×</button>
+        <span class="player-status" role="status" aria-live="polite" id="speed-status"></span>
+        <span class="shortcut-hint" aria-label="Keyboard shortcut: Space to play or pause">Space = play/pause</span>
+        <span class="shortcut-hint" aria-label="Keyboard shortcut: M to mute">M = mute</span>
+      </div>
 
       <details class="transcript">
         <summary class="transcript__toggle">Read the full transcript</summary>
-        <div class="transcript__content">
-          <p>[00:00] Sunlight filters through the forest canopy as the day begins.</p>
-          <p>[00:04] Birdsong rises in the early morning quiet, layered and overlapping.</p>
-          <p>[00:08] A gentle breeze moves through the leaves above.</p>
-          <p>[00:12] Somewhere in the distance, water trickles over stone.</p>
+        <div class="transcript__content" id="live-transcript">
+          <div class="transcript__entry" data-start="0" data-end="8">
+            <span class="transcript__time">[00:00]</span>
+            <p class="transcript__text">Sunlight filters through the forest canopy as the day begins.</p>
+          </div>
+          <div class="transcript__entry" data-start="8" data-end="16">
+            <span class="transcript__time">[00:08]</span>
+            <p class="transcript__text">Birdsong rises in the early morning quiet, layered and overlapping.</p>
+          </div>
+          <div class="transcript__entry" data-start="16" data-end="25">
+            <span class="transcript__time">[00:16]</span>
+            <p class="transcript__text">A gentle breeze moves through the leaves above.</p>
+          </div>
+          <div class="transcript__entry" data-start="25" data-end="39">
+            <span class="transcript__time">[00:25]</span>
+            <p class="transcript__text">Somewhere in the distance, water trickles over stone.</p>
+          </div>
         </div>
       </details>
 
       <div class="story__body">
-        <p>This story follows the rainforest as it wakes — the slow shift from stillness to a chorus of birds, insects, and wind. It's a reminder of how much sound carries in a place most of us will never visit in person.</p>
+        <p>This story follows the rainforest as it wakes — the slow shift from stillness to a chorus of birds, insects, and wind. It is a reminder of how much sound carries in a place most of us will never visit in person.</p>
         <p>StoryCast captures moments like this to bring listeners closer to environments and experiences outside their own.</p>
       </div>
-    </article>
 
-    <aside class="related" aria-labelledby="related-heading">
-      <h2 id="related-heading" class="related__heading">Related Stories</h2>
-      <div class="related__grid">
-        <div class="card-container">
-          <article class="card">
-            <div class="card__media-wrapper">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='400' height='225' fill='%234C7A3D'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,sans-serif' font-size='18'%3EYard%3C/text%3E%3C/svg%3E" alt="A bird in a garden in Colombia" class="card__image" />
-              <span class="card__badge card__badge--video">Video</span>
-            </div>
-            <div class="card__body">
-              <h3 class="card__title"><a href="a-visitor-in-the-yard.html" class="card__link">A Visitor in the Yard</a></h3>
-              <p class="card__description">A quiet moment with a bird in a Colombian garden.</p>
-            </div>
-          </article>
-        </div>
-        <div class="card-container">
-          <article class="card">
-            <div class="card__media-wrapper">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='400' height='225' fill='%231B2A4A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,sans-serif' font-size='18'%3EOcean%3C/text%3E%3C/svg%3E" alt="Ocean waves" class="card__image" />
-              <span class="card__badge card__badge--audio">Audio</span>
-            </div>
-            <div class="card__body">
-              <h3 class="card__title"><span class="card__link">Ocean's Whisper</span></h3>
-              <p class="card__description">An audio diary from a marine biologist. Coming soon.</p>
-            </div>
-          </article>
-        </div>
+      <div class="story__share">
+        <span class="story__share-label">Share this story:</span>
+        <button class="btn btn--outline" id="share-btn">Share</button>
       </div>
-    </aside>
+
+      <p class="story__credit">Audio sourced from <a href="https://pixabay.com/sound-effects/" target="_blank" rel="noopener">Pixabay</a>, used under the Pixabay Content License.</p>
+    </article>
   </main>
 
+  <aside class="related" aria-labelledby="related-heading">
+    <h2 id="related-heading" class="related__heading">Related Stories</h2>
+    <div class="related__grid">
+      <div class="card-container">
+        <article class="card">
+          <div class="card__media-wrapper">
+            <img src="../assets/images/a-visitor-in-the-yard.jpg"
+                 alt="A bird perched in a Colombian garden"
+                 class="card__image" loading="lazy" />
+            <span class="card__badge card__badge--video">Video</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a href="a-visitor-in-the-yard.html" class="card__link">A Visitor in the Yard</a></h3>
+            <p class="card__description">A quiet moment with a bird in a Colombian garden.</p>
+          </div>
+        </article>
+      </div>
+      <div class="card-container">
+        <article class="card">
+          <div class="card__media-wrapper">
+            <img src="../assets/images/oceans-whisper.jpg"
+                 alt="Ocean waves on a shoreline"
+                 class="card__image" loading="lazy" />
+            <span class="card__badge card__badge--audio">Audio</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><span class="card__link">Ocean's Whisper</span></h3>
+            <p class="card__description">An audio diary from a marine biologist. Coming soon.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </aside>
+
   <footer class="site-footer">
-    <p class="site-footer__text">&copy; 2026 StoryCast. All rights reserved. <a href="../about.html" class="site-footer__link">About &amp; Accessibility</a></p>
+    <div class="site-footer__inner">
+      <div>
+        <a href="../index.html" class="site-footer__logo">StoryCast</a>
+        <p class="site-footer__tagline">Accessible storytelling for everyone.</p>
+        <nav aria-label="Footer navigation">
+          <ul class="site-footer__links">
+            <li><a href="../index.html" class="site-footer__link">Home</a></li>
+            <li><a href="echoes-of-the-forest.html" class="site-footer__link">Stories</a></li>
+            <li><a href="../about.html" class="site-footer__link">About &amp; Accessibility</a></li>
+          </ul>
+        </nav>
+        <p class="site-footer__copy">&copy; 2026 StoryCast. Built by Brenda Maina.</p>
+      </div>
+    </div>
   </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" hidden>↑</button>
+  <script src="../js/main.js"></script>
 </body>
 </html>
