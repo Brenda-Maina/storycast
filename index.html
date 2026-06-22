@@ -1,85 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StoryCast brings you accessible audio and video stories from around the world — fully captioned and transcribed." />
   <title>StoryCast – Discover Stories That Matter</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- ARIA live regions for dynamic announcements -->
+  <div id="theme-announcement" class="live-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="filter-announcement" class="live-region" aria-live="polite" aria-atomic="true"></div>
+
   <header class="site-header">
-    <div class="site-header__logo">
-      <a href="index.html" class="site-header__logo-link">StoryCast</a>
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">StoryCast</a>
+
+      <button class="site-nav__toggle" id="nav-toggle"
+              aria-expanded="false"
+              aria-controls="site-nav-list"
+              aria-label="Open navigation menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="site-nav__list" id="site-nav-list">
+          <li><a href="index.html" class="site-nav__link site-nav__link--active" aria-current="page">Home</a></li>
+          <li><a href="story/echoes-of-the-forest.html" class="site-nav__link">Stories</a></li>
+          <li><a href="about.html" class="site-nav__link">About</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <span aria-hidden="true" id="theme-icon">🌙</span>
+      </button>
     </div>
-    <nav class="site-nav" aria-label="Main navigation">
-      <ul class="site-nav__list">
-        <li class="site-nav__item"><a href="index.html" class="site-nav__link site-nav__link--active" aria-current="page">Home</a></li>
-        <li class="site-nav__item"><a href="story/echoes-of-the-forest.html" class="site-nav__link">Stories</a></li>
-        <li class="site-nav__item"><a href="about.html" class="site-nav__link">About</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main id="main-content">
-    <section class="hero">
+  <main id="main-content" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="hero__content">
-        <h1 class="hero__title">Discover Stories That Matter</h1>
-        <p class="hero__subtitle">Listen to voices from around the world. StoryCast brings you immersive audio and video experiences, fully captioned and transcribed.</p>
-        <a href="#featured" class="btn btn--primary">Explore Featured Stories</a>
+        <p class="hero__eyebrow">Audio &amp; Video Storytelling</p>
+        <h1 class="hero__title" id="hero-heading">Discover Stories That Matter</h1>
+        <p class="hero__subtitle">Listen to voices from around the world. StoryCast brings you immersive audio and video experiences — fully captioned and transcribed for everyone.</p>
+        <div class="hero__actions">
+          <a href="#featured" class="btn btn--primary">Explore Stories</a>
+          <a href="about.html" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.4)">About Us</a>
+        </div>
       </div>
     </section>
 
     <section id="featured" class="featured" aria-labelledby="featured-heading">
-      <h2 id="featured-heading" class="featured__heading">Featured Stories</h2>
-      <div class="featured__grid">
+      <h2 id="featured-heading" class="featured__heading animate-on-scroll">Featured Stories</h2>
+      <p class="featured__subheading animate-on-scroll">Filter by type or browse all</p>
 
-        <div class="card-container">
+      <div class="story-filter" role="group" aria-label="Filter stories by type">
+        <button class="filter-btn filter-btn--active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="audio" aria-pressed="false">Audio</button>
+        <button class="filter-btn" data-filter="video" aria-pressed="false">Video</button>
+      </div>
+
+      <div class="featured__grid" role="list" aria-label="Story cards">
+        <div class="card-container animate-on-scroll" data-type="audio" role="listitem">
           <article class="card">
             <div class="card__media-wrapper">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='400' height='225' fill='%232C3E6B'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,sans-serif' font-size='18'%3EForest%3C/text%3E%3C/svg%3E" alt="Dense rainforest canopy" class="card__image" />
+              <img src="assets/images/echoes-of-the-forest.jpg"
+                   alt="Dense rainforest canopy with light filtering through trees"
+                   class="card__image"
+                   loading="lazy" />
               <span class="card__badge card__badge--audio">Audio</span>
             </div>
             <div class="card__body">
-              <h3 class="card__title"><a href="story/echoes-of-the-forest.html" class="card__link">Echoes of the Forest</a></h3>
+              <h3 class="card__title">
+                <a href="story/echoes-of-the-forest.html" class="card__link">
+                  Echoes of the Forest
+                </a>
+              </h3>
               <p class="card__description">A sound journey through the rainforest at dawn.</p>
             </div>
           </article>
         </div>
 
-        <div class="card-container">
+        <div class="card-container animate-on-scroll" data-type="video" role="listitem">
           <article class="card">
             <div class="card__media-wrapper">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='400' height='225' fill='%234C7A3D'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,sans-serif' font-size='18'%3EYard%3C/text%3E%3C/svg%3E" alt="A bird perched in a garden in Colombia" class="card__image" />
+              <img src="assets/images/a-visitor-in-the-yard.jpg"
+                   alt="A small yellow and black bird perched on a branch in a Colombian garden"
+                   class="card__image"
+                   loading="lazy" />
               <span class="card__badge card__badge--video">Video</span>
             </div>
             <div class="card__body">
-              <h3 class="card__title"><a href="story/a-visitor-in-the-yard.html" class="card__link">A Visitor in the Yard</a></h3>
+              <h3 class="card__title">
+                <a href="story/a-visitor-in-the-yard.html" class="card__link">
+                  A Visitor in the Yard
+                </a>
+              </h3>
               <p class="card__description">A quiet moment with a bird in a Colombian garden.</p>
             </div>
           </article>
         </div>
 
-        <div class="card-container">
+        <div class="card-container animate-on-scroll" data-type="audio" role="listitem">
           <article class="card">
             <div class="card__media-wrapper">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='400' height='225' fill='%231B2A4A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,sans-serif' font-size='18'%3EOcean%3C/text%3E%3C/svg%3E" alt="Waves on a shoreline" class="card__image" />
+              <img src="assets/images/oceans-whisper.jpg"
+                   alt="Ocean waves rolling onto a shoreline"
+                   class="card__image"
+                   loading="lazy" />
               <span class="card__badge card__badge--audio">Audio</span>
             </div>
             <div class="card__body">
-              <h3 class="card__title"><span class="card__link">Ocean's Whisper</span></h3>
+              <h3 class="card__title">
+                <span class="card__link">Ocean's Whisper</span>
+              </h3>
               <p class="card__description">An audio diary from a marine biologist. Coming soon.</p>
             </div>
           </article>
         </div>
-
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p class="site-footer__text">&copy; 2026 StoryCast. All rights reserved. <a href="about.html" class="site-footer__link">About &amp; Accessibility</a></p>
+    <div class="site-footer__inner">
+      <div>
+        <a href="index.html" class="site-footer__logo">StoryCast</a>
+        <p class="site-footer__tagline">Accessible storytelling for everyone.</p>
+        <nav aria-label="Footer navigation">
+          <ul class="site-footer__links">
+            <li><a href="index.html" class="site-footer__link">Home</a></li>
+            <li><a href="story/echoes-of-the-forest.html" class="site-footer__link">Stories</a></li>
+            <li><a href="about.html" class="site-footer__link">About &amp; Accessibility</a></li>
+          </ul>
+        </nav>
+        <p class="site-footer__copy">&copy; 2026 StoryCast. Built by Brenda Maina.</p>
+      </div>
+      <div>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);max-width:200px;text-align:right;">
+          All stories include captions and full transcripts. WCAG 2.1 AA compliant.
+        </p>
+      </div>
+    </div>
   </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" hidden>
+    ↑
+  </button>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,63 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About StoryCast – Our Mission &amp; Accessibility</title>
+  <meta name="description" content="Learn about StoryCast's mission and our commitment to accessible storytelling for everyone." />
+  <title>About StoryCast – Mission &amp; Accessibility</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="theme-announcement" class="live-region" aria-live="polite" aria-atomic="true"></div>
 
   <header class="site-header">
-    <div class="site-header__logo">
-      <a href="index.html" class="site-header__logo-link">StoryCast</a>
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">StoryCast</a>
+
+      <button class="site-nav__toggle" id="nav-toggle"
+              aria-expanded="false"
+              aria-controls="site-nav-list"
+              aria-label="Open navigation menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="site-nav__list" id="site-nav-list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="story/echoes-of-the-forest.html" class="site-nav__link">Stories</a></li>
+          <li><a href="about.html" class="site-nav__link site-nav__link--active" aria-current="page">About</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <span aria-hidden="true" id="theme-icon">🌙</span>
+      </button>
     </div>
-    <nav class="site-nav" aria-label="Main navigation">
-      <ul class="site-nav__list">
-        <li class="site-nav__item"><a href="index.html" class="site-nav__link">Home</a></li>
-        <li class="site-nav__item"><a href="story/echoes-of-the-forest.html" class="site-nav__link">Stories</a></li>
-        <li class="site-nav__item"><a href="about.html" class="site-nav__link site-nav__link--active" aria-current="page">About</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main id="main-content" class="about">
-    <h1 class="about__title">About StoryCast</h1>
-
-    <div class="about__grid">
-      <section class="about__mission" aria-labelledby="mission-heading">
-        <h2 id="mission-heading">Our Mission</h2>
-        <p>StoryCast exists to amplify voices that don't always get heard. We believe storytelling — in sound and image — can connect people across distance and difference.</p>
-        <p>From rainforest soundscapes to quiet backyard moments, every story here is chosen for what it reveals about a place, a person, or a moment.</p>
-      </section>
-
-      <section class="about__access" aria-labelledby="access-heading">
-        <h2 id="access-heading">Accessibility Commitment</h2>
-        <ul>
-          <li>Every video includes <strong>captions</strong> via a <code>&lt;track&gt;</code> element.</li>
-          <li>Every story includes a full, readable <strong>transcript</strong>.</li>
-          <li>The site meets <strong>WCAG 2.1 AA</strong> contrast and keyboard-navigation standards.</li>
-          <li>Semantic HTML is used throughout so screen readers can navigate the structure reliably.</li>
-        </ul>
-      </section>
+  <main id="main-content" tabindex="-1">
+    <div class="about-hero">
+      <h1 class="about-hero__title">About StoryCast</h1>
+      <p class="about-hero__text">We believe every voice deserves to be heard — by everyone. StoryCast makes immersive audio and video storytelling accessible from the ground up.</p>
     </div>
 
-    <section class="about__contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Get in Touch</h2>
-      <p>Have a story to suggest, or feedback on accessibility? Send us a message.</p>
-      <form class="contact-form" action="#" method="post">
+    <div class="about">
+      <div class="about__grid">
+        <section aria-labelledby="mission-heading" class="animate-on-scroll">
+          <h2 id="mission-heading" class="about__section-title">Our Mission</h2>
+          <p class="about__text">StoryCast exists to amplify voices that don't always get heard. We believe storytelling — in sound and image — can connect people across distance and difference.</p>
+          <p class="about__text">From rainforest soundscapes to quiet backyard moments, every story here is chosen for what it reveals about a place, a person, or a moment in time.</p>
+        </section>
+
+        <section aria-labelledby="access-heading" class="animate-on-scroll">
+          <h2 id="access-heading" class="about__section-title">Accessibility Commitment</h2>
+          <ul class="about__access-list" role="list">
+            <li class="about__access-item">
+              <span class="about__access-icon" aria-hidden="true">📝</span>
+              <span>Every video includes <strong>captions</strong> via a <code>&lt;track&gt;</code> element.</span>
+            </li>
+            <li class="about__access-item">
+              <span class="about__access-icon" aria-hidden="true">📄</span>
+              <span>Every story includes a full, readable <strong>transcript</strong>.</span>
+            </li>
+            <li class="about__access-item">
+              <span class="about__access-icon" aria-hidden="true">🎨</span>
+              <span>All colour combinations meet <strong>WCAG 2.1 AA</strong> contrast requirements.</span>
+            </li>
+            <li class="about__access-item">
+              <span class="about__access-icon" aria-hidden="true">⌨️</span>
+              <span>Full <strong>keyboard navigation</strong> including media keyboard shortcuts.</span>
+            </li>
+            <li class="about__access-item">
+              <span class="about__access-icon" aria-hidden="true">🌙</span>
+              <span><strong>Dark mode</strong> available, saving your preference across visits.</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <section class="engage" aria-labelledby="engage-heading">
+      <h2 id="engage-heading" class="engage__title">How to Engage</h2>
+      <ol class="engage__steps" role="list">
+        <li class="engage__step animate-on-scroll">
+          <h3 class="engage__step-title">Browse Stories</h3>
+          <p class="engage__step-text">Use the filter buttons on the homepage to find Audio or Video stories. Each card shows the type and a short description.</p>
+        </li>
+        <li class="engage__step animate-on-scroll">
+          <h3 class="engage__step-title">Listen or Watch</h3>
+          <p class="engage__step-text">Click any story card to open the full story page. The media player loads automatically — press play or use the Space bar.</p>
+        </li>
+        <li class="engage__step animate-on-scroll">
+          <h3 class="engage__step-title">Read Along</h3>
+          <p class="engage__step-text">Expand the transcript below the player. As the media plays, the current line highlights automatically so you can follow along.</p>
+        </li>
+        <li class="engage__step animate-on-scroll">
+          <h3 class="engage__step-title">Share</h3>
+          <p class="engage__step-text">Use the Share button on any story page to send it to someone. The link copies to your clipboard if your device doesn't support sharing.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="contact__title">Get in Touch</h2>
+      <p class="contact__intro">Have a story to suggest, or feedback on accessibility? Send us a message.</p>
+      <p id="form-note" class="contact-form__note">All fields are required.</p>
+      <form class="contact-form" action="#" method="post" aria-describedby="form-note" novalidate>
         <div class="contact-form__field">
-          <label for="name">Name</label>
+          <label for="name">Your name</label>
           <input type="text" id="name" name="name" autocomplete="name" required />
         </div>
         <div class="contact-form__field">
-          <label for="email">Email</label>
+          <label for="email">Email address</label>
           <input type="email" id="email" name="email" autocomplete="email" required />
         </div>
         <div class="contact-form__field">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+          <textarea id="message" name="message" rows="5" required></textarea>
         </div>
         <button type="submit" class="btn btn--primary">Send Message</button>
       </form>
@@ -65,7 +125,23 @@
   </main>
 
   <footer class="site-footer">
-    <p class="site-footer__text">&copy; 2026 StoryCast. <a href="about.html" class="site-footer__link">About &amp; Accessibility</a></p>
+    <div class="site-footer__inner">
+      <div>
+        <a href="index.html" class="site-footer__logo">StoryCast</a>
+        <p class="site-footer__tagline">Accessible storytelling for everyone.</p>
+        <nav aria-label="Footer navigation">
+          <ul class="site-footer__links">
+            <li><a href="index.html" class="site-footer__link">Home</a></li>
+            <li><a href="story/echoes-of-the-forest.html" class="site-footer__link">Stories</a></li>
+            <li><a href="about.html" class="site-footer__link">About &amp; Accessibility</a></li>
+          </ul>
+        </nav>
+        <p class="site-footer__copy">&copy; 2026 StoryCast. Built by Brenda Maina.</p>
+      </div>
+    </div>
   </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" hidden>↑</button>
+  <script src="../js/main.js"></script>
 </body>
-</html>ss
+</html>
