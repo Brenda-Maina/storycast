@@ -1,11 +1,25 @@
-$color-primary: #15213B;
-$color-primary-light: #23365C;
-$color-accent: #D7263D;
-$color-accent-hover: #B01930;
-$color-accent-secondary: #E8A33D;
-$color-accent-secondary-dark: #15213B;
-$color-bg: #FBF8F3;
-$color-text: #20232A;
-$color-text-light: #51555C;
-$color-border: #DCD5C9;
-$color-white: #FFFFFF;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+$font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+$font-serif: 'Playfair Display', Georgia, serif;
+$font-mono: 'SFMono-Regular', 'Menlo', monospace;
+
+$text-xs:   0.75rem;
+$text-sm:   0.875rem;
+$text-base: 1rem;
+$text-lg:   1.125rem;
+$text-xl:   1.25rem;
+$text-2xl:  1.5rem;
+$text-3xl:  2rem;
+$text-4xl:  2.5rem;
+$text-5xl:  3rem;
+
+$weight-normal:   400;
+$weight-medium:   500;
+$weight-semibold: 600;
+$weight-bold:     700;
+
+$leading-tight:   1.2;
+$leading-snug:    1.4;
+$leading-normal:  1.6;
+$leading-relaxed: 1.8;

@@ -1,41 +1,245 @@
-.about {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: $spacing-xl $spacing-md;
+@layer pages {
+  .about-hero {
+    background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-light) 100%);
+    color: #fff;
+    padding: $sp-16 $sp-6;
+    text-align: center;
+    border-top: 4px solid var(--c-accent);
+  }
 
-  &__title { font-size: $font-size-h1; margin-bottom: $spacing-xl; }
-  &__grid {
+  .about-hero__title {
+    font-family: $font-serif;
+    font-size: $text-4xl;
+    margin-bottom: $sp-4;
+  }
+
+  .about-hero__text {
+    font-size: $text-lg;
+    max-width: 640px;
+    margin: 0 auto;
+    opacity: 0.85;
+    line-height: $leading-relaxed;
+  }
+
+  .about {
+    max-width: $max-w;
+    margin: 0 auto;
+    padding: $sp-16 $sp-6;
+  }
+
+  .about__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: $spacing-xl;
-    margin-bottom: $spacing-2xl;
-
-    h2 { font-size: $font-size-h2; margin-bottom: $spacing-md; }
-    ul { padding-left: $spacing-lg; li { margin-bottom: $spacing-sm; } }
+    gap: $sp-10;
+    margin-bottom: $sp-16;
+    align-items: start;
   }
-  &__contact { max-width: 600px; }
-}
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-md;
-  margin-top: $spacing-lg;
-
-  &__field {
+  .about__section-title {
+    font-family: $font-serif;
+    font-size: $text-2xl;
+    margin-bottom: $sp-5;
+    color: var(--c-text);
     display: flex;
-    flex-direction: column;
-    label { margin-bottom: $spacing-xs; font-weight: $font-weight-semibold; }
-    input, textarea {
-      padding: $spacing-sm;
-      border: 1px solid $color-border;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: $font-size-base;
+    align-items: center;
+    gap: $sp-3;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 1.4em;
+      background: var(--c-accent);
+      border-radius: $radius-full;
+      flex-shrink: 0;
     }
   }
-}
 
-@media (max-width: 768px) {
-  .about__grid { grid-template-columns: 1fr; }
+  .about__text {
+    color: var(--c-text-muted);
+    font-size: $text-base;
+    line-height: $leading-relaxed;
+    margin-bottom: $sp-4;
+  }
+
+  .about__access-list {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-3;
+  }
+
+  .about__access-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $sp-3;
+    padding: $sp-4;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: $radius-md;
+    font-size: $text-sm;
+    line-height: $leading-normal;
+    color: var(--c-text);
+    border-left: 3px solid var(--c-amber);
+  }
+
+  .about__access-icon {
+    font-size: $text-base;
+    flex-shrink: 0;
+    margin-top: 0.1em;
+  }
+
+  // How to engage steps
+  .engage {
+    max-width: $max-w;
+    margin: 0 auto;
+    padding: 0 $sp-6 $sp-16;
+  }
+
+  .engage__title {
+    font-family: $font-serif;
+    font-size: $text-2xl;
+    margin-bottom: $sp-8;
+    color: var(--c-text);
+    display: flex;
+    align-items: center;
+    gap: $sp-3;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 1.4em;
+      background: var(--c-accent);
+      border-radius: $radius-full;
+    }
+  }
+
+  .engage__steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: $sp-5;
+    counter-reset: steps;
+  }
+
+  .engage__step {
+    counter-increment: steps;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: $radius-lg;
+    padding: $sp-6;
+    position: relative;
+
+    &::before {
+      content: counter(steps);
+      position: absolute;
+      top: $sp-4;
+      right: $sp-4;
+      width: 32px;
+      height: 32px;
+      background: var(--c-accent);
+      color: #fff;
+      border-radius: $radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: $weight-bold;
+      font-size: $text-sm;
+    }
+  }
+
+  .engage__step-title {
+    font-weight: $weight-semibold;
+    margin-bottom: $sp-2;
+    color: var(--c-text);
+    padding-right: $sp-10;
+  }
+
+  .engage__step-text {
+    font-size: $text-sm;
+    color: var(--c-text-muted);
+    line-height: $leading-normal;
+  }
+
+  // Contact form
+  .contact {
+    max-width: $max-w;
+    margin: 0 auto;
+    padding: 0 $sp-6 $sp-16;
+  }
+
+  .contact__title {
+    font-family: $font-serif;
+    font-size: $text-2xl;
+    margin-bottom: $sp-3;
+    color: var(--c-text);
+    display: flex;
+    align-items: center;
+    gap: $sp-3;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 1.4em;
+      background: var(--c-accent);
+      border-radius: $radius-full;
+    }
+  }
+
+  .contact__intro {
+    color: var(--c-text-muted);
+    margin-bottom: $sp-8;
+    font-size: $text-base;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: $radius-lg;
+    padding: $sp-8;
+    display: flex;
+    flex-direction: column;
+    gap: $sp-5;
+
+    &__note {
+      font-size: $text-xs;
+      color: var(--c-text-muted);
+    }
+
+    &__field {
+      display: flex;
+      flex-direction: column;
+      gap: $sp-2;
+
+      label {
+        font-size: $text-sm;
+        font-weight: $weight-semibold;
+        color: var(--c-text);
+      }
+
+      input, textarea {
+        padding: $sp-3 $sp-4;
+        border: 1.5px solid var(--c-border);
+        border-radius: $radius-md;
+        background: var(--c-bg);
+        color: var(--c-text);
+        font-size: $text-base;
+        transition: border-color 0.2s;
+
+        &:hover { border-color: var(--c-accent); }
+        &:focus-visible {
+          border-color: var(--c-accent);
+          outline: 3px solid rgba(215, 38, 61, 0.2);
+          outline-offset: 0;
+        }
+      }
+
+      textarea { resize: vertical; min-height: 120px; }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about__grid { grid-template-columns: 1fr; }
+  }
 }
